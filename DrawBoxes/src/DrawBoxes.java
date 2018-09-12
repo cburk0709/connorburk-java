@@ -1,8 +1,14 @@
 public class DrawBoxes {
     public static void main(String[] args) {
-        for (int i=0; i<4; i++) {
+	System.out.println("Three boxes");
+
+        for (int i=0; i<3; i++) {
             drawBoxes();
+	   
         }
+
+        System.out.println();
+	System.out.println("Complete.");
     }
     public static void drawBoxes() {
         System.out.println();
