@@ -1,3 +1,10 @@
+/*
+	*Connor Burk
+	*AP CS A
+	*Period 1
+	*October 3rd, 2018
+	*Scaleable Rocket Project
+ */
 public class RocketProject {
 
     public static final int SIZE = 6;
@@ -13,19 +20,19 @@ public class RocketProject {
     }
     //Prints the cone pattern used at the top and bottom of the rocket
     public static void conePart() {
-        for(int i = 0; i < SIZE; i++) {
-            System.out.print(" ");
-        }
-        for(int i = 0; SIZE > i; i++) {
-            System.out.print("/");
-        }
-        System.out.print("**");
-        for(int i = 0; SIZE > i; i++) {
-            System.out.print("\\");
-        }
-        for(int i = 0; i < SIZE; i++) {
-            System.out.print(" ");
-        }
+			for(int j = 1; j <= (SIZE * 2 - 1); j++) {
+				for(int i = j; i <= (SIZE * 2 - 1); i++) {
+					System.out.print(" ");
+				}
+				for(int i = 1; i<= j; i++) {
+					System.out.print("/");
+				}
+				System.out.print("**");
+				for(int i = 1; i <= j; i++) {
+					System.out.print("\\");
+				}
+				System.out.println(" ");
+			}
     }
     //Combines later methods so that they are called as one in the main method
     public static void topFuselage() {
@@ -39,16 +46,47 @@ public class RocketProject {
     }
     //Method for printing the upward facing pattern
     public static void upCone() {
-
-    }
+			for(int i = 1; i <= SIZE; i++) {
+				System.out.print("|");
+				//This loop makes it so that the cone pattern is printed twice
+				for(int b = 1; b <= 2; b++) {
+					for(int j = i; j < SIZE; j++) {
+						System.out.print(".");
+					}
+					for(int j = 1; j <= i; j++) {
+						System.out.print("/\\");
+					}
+					for(int j = i; j < SIZE; j++) {
+						System.out.print(".");
+					}
+				}
+				System.out.println("|");
+				}
+			}
     //Method of printing the downward facing pattern
     public static void downCone() {
-
+			for(int i = 0; i < SIZE; i++) {
+				System.out.print("|");
+				//This loop makes it so that the cone pattern is printed twice
+				for(int b = 1; b <= 2; b++) {
+					for(int j = 1; j <= i; j++) {
+						System.out.print(".");
+					}
+					for(int j = i; j < SIZE; j++) {
+						System.out.print("\\/");
+					}
+					for(int j = 1; j <= i; j++) {
+						System.out.print(".");
+					}
+				}
+				System.out.println("|");
+			}
     }
     //Method for printing the seperator
     public static void seperatorLine() {
         System.out.print("+");
-        for(int i = 1; i <= SIZE; i++) {
+				//SIZE is multiplied by 2 so that it prints the '=*' enough times to fill its line
+        for(int i = 1; i <= (SIZE * 2); i++) {
             System.out.print("=*");
         }
         System.out.println("+");
