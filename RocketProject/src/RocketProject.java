@@ -7,7 +7,7 @@
  */
 public class RocketProject {
 
-    public static final int SIZE = 6;
+    public static final int SIZE = 4;
     //Prints an ASCII rocket whose size can be modified by changing the final var
     public static void main(String[] args) {
         conePart();
@@ -85,7 +85,7 @@ public class RocketProject {
     //Method for printing the seperator
     public static void seperatorLine() {
         System.out.print("+");
-				//SIZE is multiplied by 2 so that it prints the '=*' enough times to fill its line
+	//SIZE is multiplied by 2 so that it prints the '=*' enough times to fill its line
         for(int i = 1; i <= (SIZE * 2); i++) {
             System.out.print("=*");
         }
