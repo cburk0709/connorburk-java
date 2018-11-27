@@ -1,8 +1,9 @@
 /*
 Connor Burk
 AP CS A
+Period 1
+November 14, 2018
 Rock Paper Scissors Project
-11-07-18
  */
 import java.util.Scanner;
 import java.util.Random;
