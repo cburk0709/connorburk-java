@@ -19,7 +19,7 @@ public class WorksheetFourPointTwo {
         int avg;
         //Exercise 1e.
         for (int x : arrayOne){
-            avg = 
+            avg =
         }
     }
 }
