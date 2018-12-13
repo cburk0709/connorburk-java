@@ -7,7 +7,6 @@ public class FracCalc {
         System.out.print("Please enter three tokens: ");
         String fullInput = userInput.nextLine();
         while (!fullInput.equals("quit")) {
-            //
             String[] terms = new String[3];
             int x = -1;
             //n is used to represent the amount of words we've found
@@ -29,19 +28,42 @@ public class FracCalc {
                     n++;
                 }
             }
-
-            //System.out.println(Arrays.toString(terms));
+            /*if (terms[1].equals("+")){
+                System.out.println(parseWhole(terms[0]) + parseWhole(terms[2]));
+            } else if(terms[1].equals("-")){
+                System.out.println(parseWhole(terms[0]) - parseWhole(terms[2]));
+            } else if(terms[1].equals("*")){
+                System.out.println(parseWhole(terms[0]) * parseWhole(terms[2]));
+            } else {
+                System.out.println(parseWhole(terms[0]) / parseWhole(terms[2]));
+            }*/
             System.out.print("Please input: ");
             fullInput = userInput.nextLine();
         }
     }
     public static int parseWhole(String fullNumber) {
+        int j = 0;
         for (int i = 0; i < fullNumber.length(); i++) {
             if (fullNumber.charAt(i) == '_') {
                 return Integer.parseInt(fullNumber.substring(0, i));
+            } else if(fullNumber.charAt(i) == '/') {
+                j++;
             }
+        }
+        if(j == 0){
+            return Integer.parseInt(fullNumber);
         }
         return 0;
     }
+    public static int parseNumerator(String fullNumber){
+        for(int i = 0; i < fullNumber.length(); i++){
+            if (fullNumber.charAt(i) == '_'){
+                int underscoreIndex = i;
+            }
+        }
 
+    }
+    public static int patseDenominator(String fullNumber){
+
+    }
 }
