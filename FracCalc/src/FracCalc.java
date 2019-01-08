@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class FracCalc {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
-        System.out.print("Please enter three tokens or type 'quit' to exit: ");
+        System.out.print("Please enter three terms (mixed numbers in the format of a_b/c) or type 'quit' to exit: ");
         String fullInput = userInput.nextLine();
         while (!fullInput.equals("quit")) {
             String[] terms = new String[3];
@@ -27,9 +27,10 @@ public class FracCalc {
                     n++;
                 }
             }
-
+            //New variables used to redefine the numerator in the case of a mixed number
             double newNumeratorOne = parseWhole(terms[0]) * parseDenominator(terms[0]) + parseNumerator(terms[0]);
             double newNumeratorTwo = parseWhole(terms[2]) * parseDenominator(terms[2]) + parseNumerator(terms[2]);
+            //Variables used to perform the operations by multiplying some terms together
             double AD = newNumeratorOne * parseDenominator(terms[2]);
             double BC = parseDenominator(terms[0]) * newNumeratorTwo;
             double BD = parseDenominator(terms[0]) * parseDenominator(terms[2]);
@@ -37,6 +38,8 @@ public class FracCalc {
             double ADplusBC = AD + BC;
             double ADminusBC = AD - BC;
 
+            //Battery of if statements that check the operator stored in terms[] and use the previous set of variables
+            //differently depending on what th operator is
             if (terms[1].equals("+")){
                 System.out.println(ADplusBC / BD);
             }
@@ -50,6 +53,7 @@ public class FracCalc {
                 System.out.println(AD / BC);
             }
 
+            //Sentinel
             System.out.print("Please enter three tokens or type 'quit' to exit: ");
             fullInput = userInput.nextLine();
         }
