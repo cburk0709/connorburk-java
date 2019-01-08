@@ -16,7 +16,6 @@ public class FracCalc {
                 x++;
                 if (fullInput.charAt(i) == ' ') {
                     //If the part of the string that we're accessing is a space
-                    System.out.println(fullInput.substring(i - x, i));
                     terms[n] = fullInput.substring(i - x, i);
                     x = -1;
                     n++;
@@ -24,31 +23,33 @@ public class FracCalc {
                 }
                 //Once the first two words are found we can print out the rest of the string
                 if (n == 2) {
-                    System.out.println(fullInput.substring(i + 1));
                     terms[n] = fullInput.substring(i + 1);
                     n++;
                 }
             }
 
-            int AD = parseNumerator(terms[1]) * parseDenominator(terms[2]);
-            int BC = parseDenominator(terms[1]) * parseNumerator(terms[2]);
-            int BD = parseDenominator(terms[1]) * parseDenominator(terms[2]);
-            int AC = parseNumerator(terms[1]) * parseNumerator(terms[2]);
-            int ADplusBC = AD + BC;
-            int ADminusBC = AD - BC;
-            if (terms[1].equals('+')){
+            double newNumeratorOne = parseWhole(terms[0]) * parseDenominator(terms[0]) + parseNumerator(terms[0]);
+            double newNumeratorTwo = parseWhole(terms[2]) * parseDenominator(terms[2]) + parseNumerator(terms[2]);
+            double AD = newNumeratorOne * parseDenominator(terms[2]);
+            double BC = parseDenominator(terms[0]) * newNumeratorTwo;
+            double BD = parseDenominator(terms[0]) * parseDenominator(terms[2]);
+            double AC = newNumeratorOne * newNumeratorTwo;
+            double ADplusBC = AD + BC;
+            double ADminusBC = AD - BC;
+
+            if (terms[1].equals("+")){
                 System.out.println(ADplusBC / BD);
             }
-            if (terms[1].equals('-')){
+            if (terms[1].equals("-")){
                 System.out.println(ADminusBC / BD);
             }
-            if (terms[1].equals('*')){
+            if (terms[1].equals("*")){
                 System.out.println(AC / BD);
             }
-            if (terms[1].equals('/')){
+            if (terms[1].equals("/")){
                 System.out.println(AD / BC);
             }
-            
+
             System.out.print("Please enter three tokens or type 'quit' to exit: ");
             fullInput = userInput.nextLine();
         }
